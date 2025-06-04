@@ -30,7 +30,7 @@ const LandingPage = () => {
             transition={{ duration: 0.8 }}
             className="font-bold font-roboto text-slate-800 md:text-5xl sm:text-4xl text-3xl   md:leading-[55px] sm:leading-[45px] leading-10 lg:w-full md:w-[70%] w-full"
           >
-            Linklytics Simplifies URL Shortening For Efficient Sharing.
+            LinkLitez Simplifies URL Shortening For Efficient Sharing.
           </motion.h1>
           <p className="text-slate-700 text-sm my-5">
             LinkLitez streamlines the process of URL shortening, making sharing
