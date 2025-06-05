@@ -1,5 +1,5 @@
 import dayjs from "dayjs";
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useState, useCallback } from "react";
 import toast from 'react-hot-toast';
 import CopyToClipboard from "react-copy-to-clipboard";
 import { FaExternalLinkAlt, FaRegCalendarAlt } from "react-icons/fa";
@@ -13,7 +13,7 @@ import { useStoreContext } from "../../contextApi/ContextApi";
 import { Hourglass } from "react-loader-spinner";
 import Graph from "./Graph";
 
-const ShortenItem = ({ originalUrl, shortUrl, clickCount, createdDate, refetch }) => {
+const ShortenItem = ({ originalUrl, shortUrl, clickCount, createdDate, refetch, startDate, endDate }) => {
   const { token } = useStoreContext();
   const navigate = useNavigate();
   const [isCopied, setIsCopied] = useState(false);
@@ -34,11 +34,18 @@ const ShortenItem = ({ originalUrl, shortUrl, clickCount, createdDate, refetch }
     setAnalyticToggle(!analyticToggle);
   };
 
-  const fetchMyShortUrl = async () => {
+  const fetchMyShortUrl = useCallback(async () => {
+    if (!selectedUrl || !startDate || !endDate) {
+      return;
+    }
+    
     setLoader(true);
     try {
+      const formattedStartDate = startDate.toISOString().split("T")[0] + "T00:00:00";
+      const formattedEndDate = endDate.toISOString().split("T")[0] + "T23:59:59";
+
       const { data } = await api.get(
-        `/api/urls/analytics/${selectedUrl}?startDate=2024-12-01T00:00:00&endDate=2025-12-31T23:59:59`,
+        `/api/urls/analytics/${selectedUrl}?startDate=${formattedStartDate}&endDate=${formattedEndDate}`,
         {
           headers: {
             "Content-Type": "application/json",
@@ -56,7 +63,7 @@ const ShortenItem = ({ originalUrl, shortUrl, clickCount, createdDate, refetch }
     } finally {
       setLoader(false);
     }
-  };
+  }, [selectedUrl, startDate, endDate, token, navigate]); // memoize  function using dependencies
 
   const deleteHandler = async (shortUrl) => {
     try {
@@ -159,7 +166,7 @@ const ShortenItem = ({ originalUrl, shortUrl, clickCount, createdDate, refetch }
           {/* 🔹 Analytics Button */}
           <div
             onClick={() => analyticsHandler(shortUrl)}
-            className="flex cursor-pointer gap-1 items-center bg-rose-700 py-2 font-semibold shadow-md shadow-slate-500 px-6 rounded-md text-white "
+            className="flex cursor-pointer gap-1 items-center bg-green-600 py-2 font-semibold shadow-md shadow-slate-500 px-6 rounded-md text-white "
           >
             <button>Analytics</button>
             <MdAnalytics className="text-md" />
