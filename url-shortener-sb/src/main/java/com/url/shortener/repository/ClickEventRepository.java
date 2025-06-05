@@ -27,5 +27,8 @@ public interface ClickEventRepository extends JpaRepository<ClickEvent, Long> {
             @Param("startDateTime") LocalDateTime startDateTime,
             @Param("endDateTime") LocalDateTime endDateTime);
 
+    // Delete all click events linked to a specific URL mapping
+    void deleteByUrlMapping(UrlMapping urlMapping);
+
 
 }

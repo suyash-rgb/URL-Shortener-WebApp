@@ -6,6 +6,7 @@ import com.url.shortener.models.User;
 import com.url.shortener.service.UrlMappingService;
 import com.url.shortener.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.web.bind.annotation.*;
@@ -41,6 +42,19 @@ public class UrlMappingController {
         UrlMappingDTO urlMappingDTO = urlMappingService.createShortUrl(originalUrl, user);
         return ResponseEntity.ok(urlMappingDTO);
 
+    }
+
+    @DeleteMapping("/delete-url-mapping/{shortUrl}")
+    @PreAuthorize("hasRole('USER')")
+    public ResponseEntity<?> deleteShortUrl(@PathVariable String shortUrl, Principal principal) {
+        User user = userService.findByUsername(principal.getName());
+        boolean deleted = urlMappingService.deleteShortUrl(shortUrl, user);
+
+        if (deleted) {
+            return ResponseEntity.ok("Short URL deleted successfully.");
+        } else {
+            return ResponseEntity.status(HttpStatus.NOT_FOUND).body("Short URL not found or unauthorized.");
+        }
     }
 
     @GetMapping("/myUrls")

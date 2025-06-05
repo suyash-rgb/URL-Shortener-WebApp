@@ -44,7 +44,7 @@ const CreateNewShorten = ({ setOpen, refetch }) => {
             });
           });
 
-          // await refetch();
+          refetch();
           reset();
           setOpen(false);
     } catch (error) {

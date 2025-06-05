@@ -7,6 +7,7 @@ import com.url.shortener.models.UrlMapping;
 import com.url.shortener.models.User;
 import com.url.shortener.repository.ClickEventRepository;
 import com.url.shortener.repository.UrlMappingRepository;
+import jakarta.transaction.Transactional;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -14,6 +15,7 @@ import java.time.LocalDate;
 import java.time.LocalDateTime;
 import java.util.List;
 import java.util.Map;
+import java.util.Optional;
 import java.util.Random;
 import java.util.stream.Collectors;
 
@@ -64,6 +66,24 @@ public class UrlMappingService {
         return urlMappingRepository.findByUser(user).stream()
                 .map(this::convertToDto)
                 .toList();
+    }
+
+    @Transactional
+    public boolean deleteShortUrl(String shortUrl, User user) {
+        Optional<UrlMapping> urlMappingOpt = urlMappingRepository.findByShortUrlAndUser(shortUrl, user);
+
+        if (urlMappingOpt.isPresent()) {
+            UrlMapping urlMapping = urlMappingOpt.get();
+
+            // Delete related click events first
+            clickEventRepository.deleteByUrlMapping(urlMapping);
+
+            // Now delete the URL mapping itself
+            urlMappingRepository.delete(urlMapping);
+
+            return true;
+        }
+        return false;
     }
 
     public List<ClickEventDTO> getClickEventsByDate(String shortUrl, LocalDateTime start, LocalDateTime end) {

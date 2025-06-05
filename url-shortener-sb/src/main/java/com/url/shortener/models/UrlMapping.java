@@ -21,7 +21,7 @@ public class UrlMapping {
     @JoinColumn(name = "user_id") //foreign key linking
     private User user;
 
-    @OneToMany(mappedBy = "urlMapping")
+    @OneToMany(mappedBy = "urlMapping", cascade = CascadeType.ALL, orphanRemoval = true)
     private List<ClickEvent> clickEvents;
 
     public Long getId() {
