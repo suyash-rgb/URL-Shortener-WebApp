@@ -98,7 +98,7 @@ const LandingPage = () => {
             title="Simple URL Shortening"
             desc="Experience the ease of creating short, memorable URLs in just a few clicks. Our intuitive interface and quick setup process ensure you can start shortening URLs without any hassle."
           />
-          <Card
+          <Card 
             title="Powerful Analytics"
             desc="Gain insights into your link performance with our comprehensive analytics dashboard. Track clicks, geographical data, and referral sources to optimize your marketing strategies."
           />
