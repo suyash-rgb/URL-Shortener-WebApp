@@ -57,3 +57,31 @@ export const useFetchTotalClicks = (token, startDate, endDate, onError) => {
         }
     );
 };
+
+export const useFetchClicksByDateTime = (token, startDateTime, endDateTime, onError) => {
+  return useQuery(["url-clicks-by-datetime", startDateTime, endDateTime], 
+    async () => {
+      return await api.get(
+        "/api/urls/totalclicksByDateTime",
+        {
+          params: { startDateTime, endDateTime }, // ✅ Dynamically adding query params
+          headers: {
+            "Content-Type": "application/json",
+            Accept: "application/json",
+            Authorization: "Bearer " + token,
+          },
+        }
+      );
+    },
+    {
+      select: (data) => {
+        return Object.keys(data.data).map((key) => ({
+          clickDateTime: key,
+          count: data.data[key],
+        }));
+      },
+      onError,
+      staleTime: 5000,
+    }
+  );
+};

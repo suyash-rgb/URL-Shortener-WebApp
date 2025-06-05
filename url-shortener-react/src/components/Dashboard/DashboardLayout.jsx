@@ -15,10 +15,13 @@ const DashboardLayout = () => {
   const navigate = useNavigate();
   const [startDate, setStartDate] = useState(new Date());
   const [endDate, setEndDate] = useState(new Date());
+  const [startTime, setStartTime] = useState("00:00:00");
+  const [endTime, setEndTime] = useState("23:59:59");
   const [shortenPopUp, setShortenPopUp] = useState(false);
 
   const { isLoading, data: myShortenUrls, refetch: refetchShortUrls } = useFetchMyShortUrls(token, onError);
   const { isLoading: loader, data: totalClicks =[], refetch: refetchTotalClicks } = useFetchTotalClicks(token, startDate.toISOString().split("T")[0], endDate.toISOString().split("T")[0], onError);
+  
 
   function onError() {
     navigate("/error");
@@ -59,6 +62,34 @@ const DashboardLayout = () => {
               />
             </div>
 
+            {/* 🔹 Dynamically Show Time Pickers If Same Day */}
+            {startDate.toISOString().split("T")[0] === endDate.toISOString().split("T")[0] && (
+              <div className="flex flex-col sm:flex-row gap-4">
+                
+                {/* 🔹 Start Time Dropdown */}
+                 <div className="flex flex-col">
+                   <label className="text-sm font-semibold text-gray-700">Start Time</label>
+                   <input
+                     type="time"
+                     className="border px-2 py-1 rounded-md"
+                     value={startTime}
+                     onChange={(e) => setStartTime(e.target.value)}
+                   />
+                 </div>
+
+                {/* 🔹 End Time Dropdown */}
+                 <div className="flex flex-col">
+                   <label className="text-sm font-semibold text-gray-700">End Time</label>
+                   <input
+                     type="time"
+                     className="border px-2 py-1 rounded-md"
+                     value={endTime}
+                     onChange={(e) => setEndTime(e.target.value)}
+                   />
+                 </div>
+              </div>
+           )}
+
            <button 
               className="bg-blue-500 text-white px-4 py-2 rounded-md self-end"
               onClick={handleDateChange}
@@ -85,36 +116,42 @@ const DashboardLayout = () => {
           )}
           </div>
 
-          {/* 🔹 Shorten URL Button */}
-          <div className='py-5 sm:text-end text-center'>
-            <button
-              className='bg-custom-gradient px-4 py-2 rounded-md text-white'
-              onClick={() => setShortenPopUp(true)}
-            >
-              Create a New Short URL
-            </button>
-          </div>
+          {/* 🔹 Manage Links Section */}
+          <div className="bg-gray-100 p-6 mt-8 rounded-lg shadow-md">
+           <h2 className="text-4xl font-semibold text-gray-800">Manage Links</h2>
 
-          {/* 🔹 Short URL List */}
-          <div>
-            {!isLoading && myShortenUrls.length === 0 ? (
-              <div className="flex justify-center pt-16">
-                <div className="flex gap-2 items-center justify-center py-6 sm:px-8 px-5 rounded-md shadow-lg bg-gray-50">
-                  <h1 className="text-slate-800 font-montserrat sm:text-[18px] text-[14px] font-semibold mb-1">
-                    You havent created any short link yet
+           {/* 🔹 Shorten URL Button */}
+           <div className="py-5 sm:text-end text-center">
+             <button
+               className="bg-blue-500 px-4 py-2 rounded-md text-white"
+               onClick={() => setShortenPopUp(true)}
+              >
+               Create a New Short URL
+             </button>
+           </div>
+
+           {/* 🔹 Shortened URL List */}
+           <div className="mt-4">
+             {!isLoading && myShortenUrls.length === 0 ? (
+               <div className="flex justify-center pt-8">
+                <div className="flex gap-2 items-center justify-center py-6 sm:px-8 px-5 rounded-md shadow-lg bg-white">
+                  <h1 className="text-gray-800 font-montserrat sm:text-lg text-md font-semibold">
+                    You haven’t created any short links yet.
                   </h1>
                   <FaLink className="text-blue-500 sm:text-xl text-sm" />
                 </div>
-              </div>
-            ) : (
-              <ShortenUrlList data={myShortenUrls} />
-            )}
-          </div>
+               </div>
+          ) : (
+            <ShortenUrlList data={myShortenUrls} />
+          )}
         </div>
-      )}
+       </div>
+       
 
-      {/* 🔹 Shorten Pop-Up Component */}
-      <ShortenPopUp refetch={refetchShortUrls} open={shortenPopUp} setOpen={setShortenPopUp} />
+       {/* 🔹 Shorten Pop-Up Component */}
+       <ShortenPopUp refetch={refetchShortUrls} open={shortenPopUp} setOpen={setShortenPopUp} />
+      </div>
+     )}
     </div>
   );
 };
