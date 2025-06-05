@@ -14,7 +14,11 @@ const LandingPage = () => {
   console.log("TOKEN FROM LANDING PAGE: " + token);
 
   const dashBoardNavigateHandler = () => {
-
+    if (token) {
+      navigate("/dashboard");
+    } else {
+      navigate("/login");
+    }
   };
   return (
     <div className="min-h-[calc(100vh-64px)]  lg:px-14 sm:px-8 px-4">
@@ -41,10 +45,7 @@ const LandingPage = () => {
           <div className="flex items-center gap-3">
             <motion.button
               initial={{ opacity: 0, y: 80 }}
-              whileInView={{
-                opacity: 1,
-                y: 0,
-              }}
+              whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.8 }}
               onClick={dashBoardNavigateHandler}
@@ -52,12 +53,10 @@ const LandingPage = () => {
             >
               Manage Links
             </motion.button>
+
             <motion.button
               initial={{ opacity: 0, y: 80 }}
-              whileInView={{
-                opacity: 1,
-                y: 0,
-              }}
+              whileInView={{ opacity: 1, y: 0}}
               viewport={{ once: true }}
               transition={{ duration: 0.8 }}
               onClick={dashBoardNavigateHandler}
