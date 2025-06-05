@@ -123,10 +123,10 @@ const DashboardLayout = () => {
            {/* 🔹 Shorten URL Button */}
            <div className="py-5 sm:text-end text-center">
              <button
-               className="bg-blue-500 px-4 py-2 rounded-md text-white"
+               className="bg-blue-500 font-bold px-4 py-2 rounded-md text-white"
                onClick={() => setShortenPopUp(true)}
               >
-               Create a New Short URL
+               + Create a New Short URL
              </button>
            </div>
 
