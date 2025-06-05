@@ -112,6 +112,36 @@ const LandingPage = () => {
 "
           />
         </div>
+
+        {/* Testimonials Section */}
+        <div className="bg-gray-100 py-16 px-4 rounded-md mt-12 mb-16">
+          <h2 className="text-center text-4xl font-bold mb-6 text-slate-800">What Users Say</h2>
+          <p className="text-center text-lg max-w-2xl mx-auto mb-8 text-slate-700">
+            Hear from businesses and individuals who trust LinkLitez for their URL management needs.
+          </p>
+
+          <div className="grid lg:grid-cols-3 sm:grid-cols-2 grid-cols-1 gap-8 text-center">
+            {/* Testimonial 1 */}
+            <div className="bg-gradient-to-r from-blue-500 to-purple-600 text-white p-6 rounded-md shadow-lg">
+              <p className="italic">"LinkLitez made link tracking effortless. Highly recommended!"</p>
+              <h3 className="font-semibold mt-4">- John Doe, Digital Marketer</h3>
+            </div>
+
+            {/* Testimonial 2 */}
+            <div className="bg-gradient-to-r from-blue-500 to-purple-600 text-white p-6 rounded-md shadow-lg">
+              <p className="italic">"Seamless integration with my tools. Game-changer!"</p>
+              <h3 className="font-semibold mt-4">- Sarah, Content Creator</h3>
+            </div>
+
+            {/* Testimonial 3 */}
+            <div className="bg-gradient-to-r from-blue-500 to-purple-600 text-white p-6 rounded-md shadow-lg">
+              <p className="italic">"Love the analytics! Helps me understand audience behavior better."</p>
+              <h3 className="font-semibold mt-4">- Alex, E-commerce Owner</h3>
+            </div>
+          </div>
+        </div>
+
+       
       </div>
     </div>
   );
