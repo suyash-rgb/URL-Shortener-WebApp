@@ -90,7 +90,7 @@ I was usign React 18, if you're using React 19 you might wanna use React Router 
 1. **Clone the Repository:**
    ```sh
    git clone https://github.com/suyash-rgb/URL-Shortener-WebApp.git
-   cd linklitez/backend
+   cd url-shortner-sb
 
 2. **Install Dependencies**
    Run the following command to install required dependencies:
