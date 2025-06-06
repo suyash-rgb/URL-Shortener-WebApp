@@ -85,9 +85,9 @@ URL shorteners have evolved into **powerful tools** that drive efficiency, secur
   - **MySQL/PostgreSQL** – Relational database for storing links and analytics
 
 ## 🖼️Interface Showcase
-![Alt text]()
-![Alt text]()
-![Alt text]()
+![Alt text](https://github.com/suyash-rgb/URL-Shortener-WebApp/blob/4e0544589b6c9cb5691e01c0e91f5ed67fd8aa78/images/ss/landingpage1.png)
+![Alt text](https://github.com/suyash-rgb/URL-Shortener-WebApp/blob/4e0544589b6c9cb5691e01c0e91f5ed67fd8aa78/images/ss/landingpage2.png)
+![Alt text](https://github.com/suyash-rgb/URL-Shortener-WebApp/blob/4e0544589b6c9cb5691e01c0e91f5ed67fd8aa78/images/ss/aboutpage.png)
 ![Alt text]()
 ![Alt text]()
 ![Alt text]()
