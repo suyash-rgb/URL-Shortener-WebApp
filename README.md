@@ -21,8 +21,8 @@ LinkLitez is a powerful, feature-rich URL shortening platform designed for effic
 
 - **Backend:**  
   - **Java & Spring Boot** – Robust backend framework for building REST APIs  
-  - **JWT** – JSON Web Tokens for authentication and authorization  
-  - **PostgreSQL** – Relational database for storing links and analytics  
+  - **JWT** – JSON Web Tokens for authentication and authorization.  
+  - **MySQL/PostgreSQL** – Relational database for storing links and analytics  
 
 ### Frontend Dependencies
 - `@emotion/react@11.14.0`
@@ -61,7 +61,7 @@ LinkLitez is a powerful, feature-rich URL shortening platform designed for effic
 - **Java 11 (or higher)**
 - **Spring Boot** (including Spring Boot Starter Web, Starter Security, etc.)
 - **JWT Libraries** – For token generation and validation
-- **PostgreSQL JDBC Driver**
+- **PostgreSQL JDBC Driver** (for production & deployment)
 - Additional libraries depending on project requirements (e.g., for logging and database connectivity)
 
 ## Getting Started
