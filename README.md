@@ -22,6 +22,8 @@ LinkLitez is a powerful, feature-rich URL shortening platform designed for effic
   - **React Router DOM** – Client-side routing
   - **React Hook Form** – Efficient form handling with validation
   - **React Hot Toast** – Simple and customizable toast notifications
+  - **@mui/material** – Prebuilt UI components for a polished look
+  - **@emotion/react & @emotion/styled** – Styled components and flexible CSS-in-JS
   - **Additionally:** Chart.js (via react-chartjs-2) for data visualization and other utility libraries.
 
 - **Backend:**  
