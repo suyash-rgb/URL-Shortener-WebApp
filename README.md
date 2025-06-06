@@ -156,34 +156,78 @@ I was usign React 18, if you're using React 19 you might wanna use React Router 
 - **Frontend:**  
   - Node.js (v14 or above) and npm or yarn
 
-### Setup Instructions
 
-#### Backend
-1. **Clone the Repository:**
-   ```sh
-   git clone https://github.com/suyash-rgb/URL-Shortener-WebApp.git
-   cd url-shortner-sb
+### **🚀 Setup Instructions**
 
-2. **Install Dependencies**
-   Run the following command to install required dependencies:
-   ```sh
-   npm install
-   ```
-   or, if using yarn:
-   ```sh
-   yarn install
-   ```
+#### **Backend (Spring Boot)**
+1️. **Clone the Repository:**  
+```sh
+git clone https://github.com/suyash-rgb/URL-Shortener-WebApp.git
+cd url-shortner-sb
+```
 
-3. **Set Up Environment Variables**
-   Create a `.env` file in the root directory and configure the required variables:
+2️. **Set Up Environment Variables:**  
+Create a `.env` file or update the `application.properties` for Spring Boot:
 
-   ```sh
-   DATABASE_URL=your_database_connection_string
-   PORT=your_preferred_port
-   JWT_SECRET=your_secret_key
-   ```
+```properties
+spring.datasource.url=jdbc:mysql://localhost:3306/your_database_name
+spring.datasource.username=your_db_username
+spring.datasource.password=your_db_password
+server.port=8080
+jwt.secret=your_secret_key
+```
 
+3️. **Install Dependencies & Build the Project:**  
+Run the following command to install dependencies and compile the backend:
+```sh
+mvn clean install
+```
+or, if using Gradle:
+```sh
+gradle build
+```
+
+4️. **Run the Application:**  
+Start the backend service:
+```sh
+mvn spring-boot:run
+```
+or, if using Gradle:
+```sh
+gradle bootRun
+```
+Your backend should now be running at `http://localhost:8080`.
 Make sure to replace `your_database_connection_string` with your actual database credentials.
+
+
+#### **Frontend (React)**
+1️. **Navigate to the Frontend Directory:**  
+```sh
+cd url-shortner-frontend
+```
+
+2️. **Install Dependencies:**  
+Run:
+```sh
+npm install
+```
+or, if using Yarn:
+```sh
+yarn install
+```
+
+3️. **Start the Development Server:**  
+```sh
+npm run dev
+```
+or:
+```sh
+yarn dev
+```
+Frontend will now be accessible at `http://localhost:3000`.
+
+---
+
 
 ## Usage
 Once the application is running, you can access it via your web browser at `http://localhost:your_preferred_port`. 
