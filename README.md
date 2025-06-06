@@ -82,7 +82,17 @@ URL shorteners have evolved into **powerful tools** that drive efficiency, secur
 - **Backend:**  
   - **Java & Spring Boot** – Robust backend framework for building REST APIs  
   - **JWT** – JSON Web Tokens for authentication and authorization.  
-  - **MySQL/PostgreSQL** – Relational database for storing links and analytics  
+  - **MySQL/PostgreSQL** – Relational database for storing links and analytics
+
+## 🖼️Interface Showcase
+![Alt text]()
+![Alt text]()
+![Alt text]()
+![Alt text]()
+![Alt text]()
+![Alt text]()
+![Alt text]()
+
 
 ### Frontend Dependencies
 - `@emotion/react@11.14.0`
