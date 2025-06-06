@@ -19,7 +19,9 @@ LinkLitez is a powerful, feature-rich URL shortening platform designed for effic
   - **Vite** – Fast build tool and development server  
   - **Tailwind CSS** – Utility-first CSS framework for styling  
   - **Axios, React Query** – For API calls and data management  
-  - **React Router DOM** – Client-side routing  
+  - **React Router DOM** – Client-side routing
+  - **React Hook Form** – Efficient form handling with validation
+  - **React Hot Toast** – Simple and customizable toast notifications
   - **Additionally:** Chart.js (via react-chartjs-2) for data visualization and other utility libraries.
 
 - **Backend:**  
