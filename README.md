@@ -203,7 +203,7 @@ Make sure to replace `your_database_connection_string` with your actual database
 #### **Frontend (React)**
 1️. **Navigate to the Frontend Directory:**  
 ```sh
-cd url-shortner-frontend
+cd url-shortner-react
 ```
 
 2️. **Install Dependencies:**  
@@ -224,13 +224,13 @@ or:
 ```sh
 yarn dev
 ```
-Frontend will now be accessible at `http://localhost:3000`.
+Frontend will now be accessible at `http://localhost:5173`.
 
 ---
 
 
 ## Usage
-Once the application is running, you can access it via your web browser at `http://localhost:your_preferred_port`. 
+Once the application is running, you can access it via your web browser at `http://localhost:5173`. 
 
 ### Creating a Shortened URL
 1. Enter the URL you want to shorten in the input field.
