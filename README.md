@@ -4,6 +4,7 @@
 
 ## Project Overview
 LinkLitez is a powerful, feature-rich URL shortening platform designed for efficiency, customization, and scalability. It enables users to create, manage, and track shortened links while ensuring secure and seamless redirection.
+![Alt text](relative/path/to/image.png)
 
 ## Features
 - **Effortless Short URL Generation:** Create distinct, user-friendly shortened links in just a few clicks.
