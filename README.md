@@ -113,3 +113,27 @@ I was usign React 18, if you're using React 19 you might wanna use React Router 
 
 Make sure to replace `your_database_connection_string` with your actual database credentials.
 
+## Usage
+Once the application is running, you can access it via your web browser at `http://localhost:your_preferred_port`. 
+
+### Creating a Shortened URL
+1. Enter the URL you want to shorten in the input field.
+2. Click the "Shorten" button.
+3. Copy the generated short URL.
+
+### Viewing Analytics
+Navigate to the analytics section to view the click statistics for your shortened URLs.
+
+## Contributing
+We welcome contributions! Please follow these steps to contribute:
+
+1. Fork the repository.
+2. Create a new branch (`git checkout -b feature/YourFeature`).
+3. Make your changes and commit them (`git commit -m 'Add some feature'`).
+4. Push to the branch (`git push origin feature/YourFeature`).
+5. Open a pull request.
+
+
+## Contact
+For any inquiries, please reach out to [Suyash Baoney](mailto:suyashbaoney58@gmail.com).
+
