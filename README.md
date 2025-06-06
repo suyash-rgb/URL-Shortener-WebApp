@@ -64,6 +64,8 @@ LinkLitez is a powerful, feature-rich URL shortening platform designed for effic
 - `tailwindcss@3.4.17`
 - `vite@6.0.6`
 
+I was usign React 18, if you're using React 19 you might wanna use React Router instead of React-Router-DOM among other dependency changes.
+
 ### Backend Dependencies
 - **Java 11 (or higher)**
 - **Spring Boot** (including Spring Boot Starter Web, Starter Security, etc.)
