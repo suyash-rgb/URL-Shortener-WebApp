@@ -85,17 +85,15 @@ URL shorteners have evolved into **powerful tools** that drive efficiency, secur
   - **MySQL/PostgreSQL** – Relational database for storing links and analytics
 
 ## 🖼️Interface Showcase
-![Alt text](https://github.com/suyash-rgb/URL-Shortener-WebApp/blob/4e0544589b6c9cb5691e01c0e91f5ed67fd8aa78/images/ss/landingpage1.png) <br><br>
-![Alt text](https://github.com/suyash-rgb/URL-Shortener-WebApp/blob/4e0544589b6c9cb5691e01c0e91f5ed67fd8aa78/images/ss/landingpage2.png) <br><br>
-![Alt text](https://github.com/suyash-rgb/URL-Shortener-WebApp/blob/4e0544589b6c9cb5691e01c0e91f5ed67fd8aa78/images/ss/aboutpage.png) <br><br>
-![Alt text](https://github.com/suyash-rgb/URL-Shortener-WebApp/blob/454428fdfc73548c33ab316ba7f9c35ee67ba2c9/images/ss/loginpage.png) <br><br>
-![Alt text](https://github.com/suyash-rgb/URL-Shortener-WebApp/blob/454428fdfc73548c33ab316ba7f9c35ee67ba2c9/images/ss/registerpage.png) <br><br>
+![Langing Page1](https://github.com/suyash-rgb/URL-Shortener-WebApp/blob/4e0544589b6c9cb5691e01c0e91f5ed67fd8aa78/images/ss/landingpage1.png) <br><br>
+![Langing Page2](https://github.com/suyash-rgb/URL-Shortener-WebApp/blob/4e0544589b6c9cb5691e01c0e91f5ed67fd8aa78/images/ss/landingpage2.png) <br><br>
+![About Page](https://github.com/suyash-rgb/URL-Shortener-WebApp/blob/4e0544589b6c9cb5691e01c0e91f5ed67fd8aa78/images/ss/aboutpage.png) <br><br>
+![Login Page](https://github.com/suyash-rgb/URL-Shortener-WebApp/blob/454428fdfc73548c33ab316ba7f9c35ee67ba2c9/images/ss/loginpage.png) <br><br>
+![Register Page](https://github.com/suyash-rgb/URL-Shortener-WebApp/blob/454428fdfc73548c33ab316ba7f9c35ee67ba2c9/images/ss/registerpage.png) <br><br>
+![Dasboard Layout1](https://github.com/suyash-rgb/URL-Shortener-WebApp/blob/cdd6d97b4fad2375afb7bce82ba45919c24c5e58/images/ss/dashboard1.png) <br><br>
+![Dasboard Layout2](https://github.com/suyash-rgb/URL-Shortener-WebApp/blob/cdd6d97b4fad2375afb7bce82ba45919c24c5e58/images/ss/dashboard2.png) <br><br>
 ![Alt text]()
 ![Alt text]()
-![Alt text]()
-![Alt text]()
-![Alt text]()
-
 
 
 ### Frontend Dependencies
