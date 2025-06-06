@@ -92,8 +92,8 @@ URL shorteners have evolved into **powerful tools** that drive efficiency, secur
 ![Register Page](https://github.com/suyash-rgb/URL-Shortener-WebApp/blob/454428fdfc73548c33ab316ba7f9c35ee67ba2c9/images/ss/registerpage.png) <br><br>
 ![Dasboard Layout1](https://github.com/suyash-rgb/URL-Shortener-WebApp/blob/cdd6d97b4fad2375afb7bce82ba45919c24c5e58/images/ss/dashboard1.png) <br><br>
 ![Dasboard Layout2](https://github.com/suyash-rgb/URL-Shortener-WebApp/blob/cdd6d97b4fad2375afb7bce82ba45919c24c5e58/images/ss/dashboard2.png) <br><br>
-![Alt text]()
-![Alt text]()
+![Alt text](https://github.com/suyash-rgb/URL-Shortener-WebApp/blob/5b07df42b5108f61896f26c8e770f948fd527055/images/ss/managelinks1.png) <br><br>
+![Alt text](https://github.com/suyash-rgb/URL-Shortener-WebApp/blob/5b07df42b5108f61896f26c8e770f948fd527055/images/ss/managelinks2.png) <br><br>
 
 
 ### Frontend Dependencies
