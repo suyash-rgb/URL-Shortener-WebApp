@@ -70,7 +70,7 @@ LinkLitez is a powerful, feature-rich URL shortening platform designed for effic
 - **Backend:**  
   - Java JDK 11 or newer  
   - Maven or Gradle  
-  - PostgreSQL database
+  - MySQL/PostgreSQL database
 
 - **Frontend:**  
   - Node.js (v14 or above) and npm or yarn
