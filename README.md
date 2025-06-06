@@ -91,3 +91,25 @@ I was usign React 18, if you're using React 19 you might wanna use React Router 
    ```bash
    git clone https://github.com/yourusername/linklitez.git
    cd linklitez/backend
+
+2. **Install Dependencies**
+Run the following command to install required dependencies:
+```sh
+npm install
+```
+or, if using yarn:
+```sh
+yarn install
+```
+
+3. **Set Up Environment Variables**
+Create a `.env` file in the root directory and configure the required variables:
+
+```
+DATABASE_URL=your_database_connection_string
+PORT=your_preferred_port
+JWT_SECRET=your_secret_key
+```
+
+Make sure to replace `your_database_connection_string` with your actual database credentials.
+
