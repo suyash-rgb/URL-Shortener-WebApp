@@ -89,7 +89,7 @@ I was usign React 18, if you're using React 19 you might wanna use React Router 
 #### Backend
 1. **Clone the Repository:**
    ```sh
-   git clone https://github.com/yourusername/linklitez.git
+   git clone https://github.com/suyash-rgb/URL-Shortener-WebApp.git
    cd linklitez/backend
 
 2. **Install Dependencies**
