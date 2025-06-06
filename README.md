@@ -1,4 +1,4 @@
-# LinkLitez URL Shortener WebApp
+# LinkLitez: URL Shortener WebApp
 
 ![Alt text](https://github.com/suyash-rgb/URL-Shortener-WebApp/blob/5a471130241e4ee23ca35f78318078024399db9d/images/background.png)
 
