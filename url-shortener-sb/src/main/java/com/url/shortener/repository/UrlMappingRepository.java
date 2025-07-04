@@ -15,4 +15,7 @@ public interface UrlMappingRepository extends JpaRepository<UrlMapping, Long> {
 
     // Find a Short URL by both its shortUrl and the User who owns it
     Optional<UrlMapping> findByShortUrlAndUser(String shortUrl, User user);
+
+    //New Feature
+    boolean existsByShortUrl(String newShortUrl);
 }

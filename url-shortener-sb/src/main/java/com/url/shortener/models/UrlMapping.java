@@ -79,4 +79,5 @@ public class UrlMapping {
     public void setClickEvents(List<ClickEvent> clickEvents) {
         this.clickEvents = clickEvents;
     }
+
 }

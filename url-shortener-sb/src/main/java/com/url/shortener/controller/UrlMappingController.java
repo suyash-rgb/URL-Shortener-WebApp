@@ -2,6 +2,7 @@ package com.url.shortener.controller;
 
 import com.url.shortener.dtos.ClickEventDTO;
 import com.url.shortener.dtos.UrlMappingDTO;
+import com.url.shortener.exceptions.ShortUrlTooLongException;
 import com.url.shortener.models.User;
 import com.url.shortener.service.UrlMappingService;
 import com.url.shortener.service.UserService;
@@ -15,6 +16,7 @@ import java.security.Principal;
 import java.time.LocalDate;
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
+import java.util.Collections;
 import java.util.List;
 import java.util.Map;
 
@@ -71,7 +73,7 @@ public class UrlMappingController {
     @PreAuthorize("hasRole('USER')")
     public ResponseEntity<List<ClickEventDTO>> getUrlAnalytics(@PathVariable String shortUrl,
                                                                @RequestParam("startDate") String startDate,
-                                                               @RequestParam("endDate") String endDate) {
+                                                               @RequestParam("endDate") String endDate) throws Throwable {
         DateTimeFormatter formatter = DateTimeFormatter.ISO_LOCAL_DATE_TIME;
         // 2025-12-01T00:00:00
         LocalDateTime start = LocalDateTime.parse(startDate, formatter);
@@ -107,6 +109,32 @@ public class UrlMappingController {
         LocalDateTime end = LocalDateTime.parse(endDateTime, formatter);
         Map<LocalDateTime, Long> clickData = urlMappingService.getTotalClicksByUserAndDateTime(user, start, end);
         return ResponseEntity.ok(clickData);
+    }
+
+    //New feature
+    @PutMapping("/customize-shortUrl/{shortUrl}")
+    @PreAuthorize("hasRole('USER')")
+    public ResponseEntity<UrlMappingDTO> updateShortUrl(
+            @PathVariable String shortUrl,
+            @RequestBody Map<String, String> request,
+            Principal principal) {
+
+        String newShortUrl = request.get("newShortUrl");
+        User user = userService.findByUsername(principal.getName());
+
+        try{
+            UrlMappingDTO updatedMapping = urlMappingService.updateShortUrl(shortUrl, newShortUrl, user);
+            return ResponseEntity.ok(updatedMapping);
+        } catch (ShortUrlTooLongException ex){
+            return ResponseEntity
+                    .status(HttpStatus.PAYLOAD_TOO_LARGE)
+                    .body((UrlMappingDTO) Collections.singletonMap("error", "Custom short URL must not exceed 15 characters."));
+
+        } catch (RuntimeException ex){
+            return ResponseEntity
+                    .status(HttpStatus.INTERNAL_SERVER_ERROR)
+                    .body((UrlMappingDTO) Collections.singletonMap("error", ex.getMessage()));
+        }
     }
 
 

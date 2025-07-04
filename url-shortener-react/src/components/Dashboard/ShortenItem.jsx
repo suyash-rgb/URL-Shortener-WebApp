@@ -6,7 +6,7 @@ import { FaExternalLinkAlt, FaRegCalendarAlt } from "react-icons/fa";
 import { IoCopy } from "react-icons/io5";
 import { LiaCheckSolid } from "react-icons/lia";
 import { MdAnalytics, MdOutlineAdsClick } from "react-icons/md";
-import { MdDelete } from "react-icons/md";
+import { MdDelete, MdEdit } from "react-icons/md";  
 import api from "../../api/api";
 import { Link, useNavigate } from "react-router-dom";
 import { useStoreContext } from "../../contextApi/ContextApi";
@@ -76,18 +76,57 @@ const ShortenItem = ({ originalUrl, shortUrl, clickCount, createdDate, refetch, 
         });
 
         toast.success("Short URL deleted successfully!");
-        refetch(); // ✅ Refresh list instantly
+        refetch(); // Refresh list instantly
     } catch (error) {
         console.log(error);
         toast.error("Failed to delete short URL.");
     }
 };
 
-  useEffect(() => {
+ useEffect(() => {
     if (selectedUrl) {
       fetchMyShortUrl();
     }
-  }, [selectedUrl, fetchMyShortUrl]);
+ }, [selectedUrl, fetchMyShortUrl]);
+
+ const handleCustomize = async (currentShortUrl) => {
+  const customUrl = prompt("Enter you custome short URL: ");
+  if(!customUrl || customUrl.length>15){
+    toast.error("Custom URL must be 15 characters or fewer");
+    return;
+  }
+
+  try {
+    const encodedUrl = encodeURIComponent(currentShortUrl);
+    await api.put(
+      `/api/urls/customize-shortUrl/${encodedUrl}`,
+      { newShortUrl: customUrl},
+      {
+        headers: {
+                "Content-Type": "application/json",
+                Accept: "application/json",
+                Authorization: "Bearer " + token,
+        },
+      }
+    );
+
+    toast.success("Short Url updated successfully!");
+    refetch();
+  } catch(error){
+    const status = error?.response?.status;
+    const message = error?.response?.data.error || "Something went wrong";
+    if(status === 413){
+      toast.error(error?.response?.data.error || "URL is too long!");
+    } else if(status === 400 || status === 409){
+      toast.error(message);
+    } else {
+      toast.error("Failed to customize short URL");
+    }
+    console.error(error);
+  }
+ };
+
+ 
 
   return (
     <div
@@ -162,6 +201,15 @@ const ShortenItem = ({ originalUrl, shortUrl, clickCount, createdDate, refetch, 
               )}
             </div>
           </CopyToClipboard>
+
+          {/* Customize Button */}
+          <div 
+             onClick={()=> handleCustomize(shortUrl)}
+             className="flex cursor-pointer gap-1 items-center bg-yellow-500 py-2  font-semibold shadow-md shadow-slate-500 px-6 rounded-md text-white"
+          >
+            <button>Customize</button>
+            <MdEdit className="text-md"></MdEdit>
+          </div>
 
           {/* 🔹 Analytics Button */}
           <div

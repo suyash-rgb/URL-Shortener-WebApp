@@ -2,6 +2,7 @@ package com.url.shortener.service;
 
 import com.url.shortener.dtos.ClickEventDTO;
 import com.url.shortener.dtos.UrlMappingDTO;
+import com.url.shortener.exceptions.ShortUrlTooLongException;
 import com.url.shortener.models.ClickEvent;
 import com.url.shortener.models.UrlMapping;
 import com.url.shortener.models.User;
@@ -15,7 +16,7 @@ import java.time.LocalDate;
 import java.time.LocalDateTime;
 import java.util.List;
 import java.util.Map;
-import java.util.Optional;
+import java.util.Optional; //
 import java.util.Random;
 import java.util.stream.Collectors;
 
@@ -29,7 +30,7 @@ public class UrlMappingService {
     private ClickEventRepository clickEventRepository;
 
     public UrlMappingDTO createShortUrl(String originalUrl, User user) {
-        String shortUrl = generateShortUrl();
+        String shortUrl = generateShortUrl(); //call to generateShortUrl() method
         UrlMapping urlMapping = new UrlMapping();
         urlMapping.setOriginalUrl(originalUrl);
         urlMapping.setShortUrl(shortUrl);
@@ -86,8 +87,9 @@ public class UrlMappingService {
         return false;
     }
 
-    public List<ClickEventDTO> getClickEventsByDate(String shortUrl, LocalDateTime start, LocalDateTime end) {
+    public List<ClickEventDTO> getClickEventsByDate(String shortUrl, LocalDateTime start, LocalDateTime end) throws Throwable {
         UrlMapping urlMapping = urlMappingRepository.findByShortUrl(shortUrl);
+
         if(urlMapping!=null){
 
             return clickEventRepository.findByUrlMappingAndClickDateBetween(urlMapping, start, end)
@@ -116,6 +118,7 @@ public class UrlMappingService {
 
     public UrlMapping getOriginalUrl(String shortUrl) {
         UrlMapping urlMapping = urlMappingRepository.findByShortUrl(shortUrl);
+                //.orElseThrow(() -> new RuntimeException("not found")); //new
         if (urlMapping != null) {
             urlMapping.setClickCount(urlMapping.getClickCount() + 1);
             urlMappingRepository.save(urlMapping);
@@ -138,4 +141,29 @@ public class UrlMappingService {
                 .collect(Collectors.groupingBy(click -> click.getClickDate(), Collectors.counting()));
     }
 
+
+    public UrlMappingDTO updateShortUrl(String shortUrl, String newShortUrl, User user) {
+        UrlMapping urlMapping = urlMappingRepository.findByShortUrl(shortUrl);
+
+        // validate the user ownership
+        if(!urlMapping.getUser().getUsername().equals(user.getUsername())){
+            throw new RuntimeException("User is not allowed");
+        }
+
+        //check the custom url for uniquenesss
+        if(urlMappingRepository.existsByShortUrl(newShortUrl)){
+            throw new RuntimeException("This url is already taken, please try another one!");
+        }
+
+        //
+        if(newShortUrl.length()>15){
+            throw new ShortUrlTooLongException("The custom url should be under 15 characters");
+        }
+
+        //update the generated short url
+        urlMapping.setShortUrl(newShortUrl);
+        UrlMapping updatedMapping = urlMappingRepository.save(urlMapping);
+
+        return convertToDto(updatedMapping);
+    }
 }
