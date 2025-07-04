@@ -103,6 +103,10 @@ URL Specific Analytics <br>
 ![Alt text](https://github.com/suyash-rgb/URL-Shortener-WebApp/blob/5b07df42b5108f61896f26c8e770f948fd527055/images/ss/managelinks1.png) <br><br>
 ![Alt text](https://github.com/suyash-rgb/URL-Shortener-WebApp/blob/5b07df42b5108f61896f26c8e770f948fd527055/images/ss/managelinks2.png) <br><br>
 
+After Custom URLs feature update: 
+![Alt text](https://github.com/suyash-rgb/URL-Shortener-WebApp/blob/5b07df42b5108f61896f26c8e770f948fd527055/images/ss/managelinks2.png) <br><br>
+![Alt text](https://github.com/suyash-rgb/URL-Shortener-WebApp/blob/5b07df42b5108f61896f26c8e770f948fd527055/images/ss/managelinks2.png) <br><br>
+
 
 ### Frontend Dependencies
 - `@emotion/react@11.14.0`
