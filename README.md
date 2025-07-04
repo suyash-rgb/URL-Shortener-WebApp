@@ -8,6 +8,7 @@ LinkLitez is a powerful, feature-rich URL shortening platform designed for effic
 
 ## Features
 - **Effortless Short URL Generation:** Create distinct, user-friendly shortened links in just a few clicks.
+- **Custom Short URLs:** Personalize your shortened links with custom aliases to make them more memorable and brand-friendly.
 - **Detailed Analytics & Click Tracking:** Monitor how many times shortened URLs are accessed with interactive data visualizations.
 - **Enhanced Security:** Leverage advanced security measures to keep your redirection data safe.
 - **Fast and Reliable Redirection:** Enjoy high performance and minimal downtime for a seamless user experience.
@@ -100,6 +101,10 @@ Manage Links Section in Dashboard Layout <br>
 ![Dasboard Layout2](https://github.com/suyash-rgb/URL-Shortener-WebApp/blob/cdd6d97b4fad2375afb7bce82ba45919c24c5e58/images/ss/dashboard2.png) <br><br>
 URL Specific Analytics <br>
 ![Alt text](https://github.com/suyash-rgb/URL-Shortener-WebApp/blob/5b07df42b5108f61896f26c8e770f948fd527055/images/ss/managelinks1.png) <br><br>
+![Alt text](https://github.com/suyash-rgb/URL-Shortener-WebApp/blob/5b07df42b5108f61896f26c8e770f948fd527055/images/ss/managelinks2.png) <br><br>
+
+After Custom URLs feature update: 
+![Alt text](https://github.com/suyash-rgb/URL-Shortener-WebApp/blob/5b07df42b5108f61896f26c8e770f948fd527055/images/ss/managelinks2.png) <br><br>
 ![Alt text](https://github.com/suyash-rgb/URL-Shortener-WebApp/blob/5b07df42b5108f61896f26c8e770f948fd527055/images/ss/managelinks2.png) <br><br>
 
 
