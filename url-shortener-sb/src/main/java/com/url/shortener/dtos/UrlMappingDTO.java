@@ -2,7 +2,6 @@ package com.url.shortener.dtos;
 
 import java.time.LocalDateTime;
 
-
 public class UrlMappingDTO {
 
     private Long id;
