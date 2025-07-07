@@ -10,6 +10,7 @@ import { MdDelete, MdEdit } from "react-icons/md";
 import api from "../../api/api";
 import { Link, useNavigate } from "react-router-dom";
 import { useStoreContext } from "../../contextApi/ContextApi";
+import CustomizePopUp from './CustomizePopUp';
 import { Hourglass } from "react-loader-spinner";
 import Graph from "./Graph";
 
@@ -21,6 +22,8 @@ const ShortenItem = ({ originalUrl, shortUrl, clickCount, createdDate, refetch, 
   const [loader, setLoader] = useState(false);
   const [selectedUrl, setSelectedUrl] = useState("");
   const [analyticsData, setAnalyticsData] = useState([]);
+  const [customizePopUp, setCustomizePopUp] = useState(false);
+  const [customizeTargetUrl, setCustomizeTargetUrl] = useState('');
 
   const subDomain = import.meta.env.VITE_REACT_FRONT_END_URL.replace(
     /^https?:\/\//,
@@ -184,8 +187,8 @@ const ShortenItem = ({ originalUrl, shortUrl, clickCount, createdDate, refetch, 
         </div>
 
         <div className="flex  flex-1  sm:justify-end items-center gap-4">
+          
           {/* 🔹 Copy Button */}
-
           <CopyToClipboard
             onCopy={() => setIsCopied(true)}
             text={`${
@@ -202,13 +205,17 @@ const ShortenItem = ({ originalUrl, shortUrl, clickCount, createdDate, refetch, 
             </div>
           </CopyToClipboard>
 
+
           {/* Customize Button */}
-          <div 
-             onClick={()=> handleCustomize(shortUrl)}
-             className="flex cursor-pointer gap-1 items-center bg-yellow-500 py-2  font-semibold shadow-md shadow-slate-500 px-6 rounded-md text-white"
+          <div
+              onClick={() => {
+                setCustomizeTargetUrl(shortUrl);
+                setCustomizePopUp(true);
+              }}
+              className="flex cursor-pointer gap-1 items-center bg-yellow-500 py-2 font-semibold shadow-md shadow-slate-500 px-6 rounded-md text-white"
           >
-            <button>Customize</button>
-            <MdEdit className="text-md"></MdEdit>
+              <button>Customize</button>
+              <MdEdit className="text-md" />
           </div>
 
           {/* 🔹 Analytics Button */}
@@ -268,6 +275,14 @@ const ShortenItem = ({ originalUrl, shortUrl, clickCount, createdDate, refetch, 
             </>
           )}
         </div>
+
+        <CustomizePopUp
+          open={customizePopUp}
+          setOpen={setCustomizePopUp}
+          shortUrl={customizeTargetUrl}
+          refetch={refetch}
+        />
+
       </React.Fragment>
     </div>
   );
